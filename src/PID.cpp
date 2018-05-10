@@ -40,7 +40,7 @@ void PID::UpdateError(double cte)
     p_error = cte;
 
     error += cte * cte;
-
+    // twiddle: update PID parameters based on total error of N steps
     if ((step + 1) % N == 0 && Type < 1)
     {
         if (step == N - 1)
