@@ -1,8 +1,20 @@
 #ifndef PID_H
 #define PID_H
-
+#include <cstddef> // for size_t
+#include <iostream>
 class PID {
 public:
+  /*
+  * Update parameters every N steps
+  */
+  size_t N, step;
+  size_t ind;
+  size_t stage;
+  size_t Type;
+  
+  double best_error;
+  double error;
+  double dp,di,dd;
   /*
   * Errors
   */
