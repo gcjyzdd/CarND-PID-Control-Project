@@ -15,7 +15,7 @@ the control variable reach the desired value faster; however, it may lead to a b
 
 To reduce overshoot, a derivative gain is applied because it compensates the control variable with a term $$\propto -\frac{de}{dt}$$. For example, if the error is decreasing, the compensation term is positive which "pushes" the control variable away from the desired value, damping the overshoot. 
 
-The integration gain is applied to remove system errors and sensor noises. For example, when the model of a system is not correct, or the actuator has a bias, the control variable will have a constant offset to the desired variable. If the offset is small, the proportional gain and derivative gain can not compensate the error. To remove the offset, an integration gain accumulates all historical error by integration. In this way, the integration gain "magnifies" the offset and compensate the error.
+The integration gain is applied to remove system errors and sensor noises. For example, when the model of a system is not accurate, or the actuator has a bias, the control variable will have a constant offset to the desired variable. If the offset is small, the proportional gain and derivative gain can not compensate the error. To remove the offset, an integration gain accumulates all historical error by integration. In this way, the integration gain "magnifies" the offset and compensate the error.
 
 ## Twiddle
 
