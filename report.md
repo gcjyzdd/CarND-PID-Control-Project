@@ -1,11 +1,21 @@
 # Report of PID Conbtroller Project
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 ## Introduction
 
 In this project, I used two PID controllers to control the vehicle, one for throtle and the other for steer angle. The "twiddle" algorithm was applied to update PID parameters in real time.
 
 To simply the problem, only the PID controller of steer angle was able to *train* parameters. The parameters of throtle PID controller was manually tuned by trial and error.
+
+## Effects of the P, I, D coefficients
+
+Generally speaking, the proportional gain detemines the "strength" to pull the control variable back to the desired value. A greater proportional gain will make
+the control variable reach the desired value faster; however, it may lead to a bigger overshoot.
+
+To reduce overshoot, a derivative gain is applied because it compensates the control variable with a term $$\propto -\frac{de}{dt}$$. For example, if the error is decreasing, the compensation term is positive which "pushes" the control variable away from the desired value, damping the overshoot. 
+
+The integration gain is applied to remove system errors and sensor noises. For example, when the model of a system is not correct, or the actuator has a bias, the control variable will have a constant offset to the desired variable. If the offset is small, the proportional gain and derivative gain can not compensate the error. To remove the offset, an integration gain accumulates all historical error by integration. In this way, the integration gain "magnifies" the offset and compensate the error.
 
 ## Twiddle
 
